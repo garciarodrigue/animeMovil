@@ -27,20 +27,21 @@ function App() {
       <Btonsb
         urlimg={'./svgs/back-icon.svg'}
       />
-      <Header/>
-      <Media/>
-      <Informacion
-        nombre={anime.title}
-        nombreOr={anime.title_japanese}
-        fans={anime.members}
-        sinopsis={anime.synopsis}
-        episodios={anime.episodes}
-        urlimg={urlimg}
-        genero={generos}
-
-        year={anime.year}
-        status={anime.status}
-      />
+       <Header/>
+      <section className="Capactive">
+        <Media/>
+        <Informacion
+          nombre={anime.title}
+          nombreOr={anime.title_japanese}
+          fans={anime.members}
+          sinopsis={anime.synopsis}
+          episodios={anime.episodes}
+          urlimg={urlimg}
+          genero={generos}
+          year={anime.year}
+          status={anime.status}
+        />
+      </section>
       
     </>
   )
