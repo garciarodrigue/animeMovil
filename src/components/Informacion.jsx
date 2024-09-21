@@ -1,6 +1,10 @@
 import '../styles/informacion.css'
 
-export const Informacion = ()=>{
+export const Informacion = ({ nombre,nombreOr,fans,sinopsis,episodios,urlimg,year,status,genero})=>{
+
+    
+    console.log(genero)
+
     return(
         <section className="Inforanime">
             <div className="Inforanime-punteo">
@@ -12,27 +16,37 @@ export const Informacion = ()=>{
                     <img src="/svgs/star-icon.svg" alt="star" />
                 </figure>
                 <div>
-                    <p><strong>Punteo:</strong>9999</p>
+                    <p><strong>fans:</strong>{fans}</p>
                 </div>
             </div>
-            <h1><strong>Nombre Original:</strong> Sward art online</h1>
+            <h1>Nombre Original:{nombreOr}</h1>
             <section className="Inforanime-info">
                 <div id='info'>
-                    <h2>Sword Art  Online</h2>
+                    <h2>{nombre}</h2>
                     <h5>Información</h5>
-                    <p><strong>Genero:</strong> Acción, Aventura, Fantasía, Romance</p>
+                    <div id='genres'>
+                         {
+                            genero.map(gen=>{
+                                return(
+                                    <>
+                                    <p key={gen.mal_id}>{gen.name}</p>
+                                    </>
+                                )
+                            })
+                         }
+                    </div>
                     <div  className="Inforanime-info-text">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates dolore facilis consequuntur esse, recusandae tempora nam libero ducimus facere doloribus voluptatem veniam repellat ex aut dignissimos vel architecto pariatur accusantium.</p>
+                        <p>{sinopsis}</p>
                     </div>
                 </div>
                 <div className="Inforanime-info-img">
-                    <figure>
+                    <img src={urlimg} alt="" />
 
-                    </figure>
+                 
                     <div>
-                        <p><strong>Tem/</strong> 4</p>
-                        <p><strong>Cap/</strong> 100</p>
-                        <p>En emisión</p>
+                        <p><strong>Year/</strong> {year}</p>
+                        <p><strong>Cap/</strong>{episodios}</p>
+                        <p>{status}</p>
                     </div>
                 </div>
 

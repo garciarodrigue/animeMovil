@@ -6,17 +6,14 @@
     min-height: max-content;
 }
 .Inforanime h1{
-    font-size: 1.2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    font-size: 1.1rem;
     height: fit-content;
     max-height: 3rem;
     border: solid 1px black;
     border-radius: .4rem;
-    strong{
-        display: flex;
-    }
+    padding: .2rem;
+    gap: .1rem;
+  
 }
 .Inforanime-punteo{
     display: flex;
@@ -61,6 +58,23 @@
     border: solid black 1px;
     padding: .5rem;
     border-right: none;
+    #genres{
+        width: 100%;
+        height: 2rem;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        p{
+            border: solid 1px black;
+            border-radius: .3rem;
+            min-width: 3.5rem;
+            padding: .1rem;
+            font-size: small;
+            text-align: center;
+            
+        }
+    }
 
 }
 .Inforanime-info h2{
@@ -85,32 +99,32 @@
    overflow-y: scroll;
    p{
     width: fit-content;
+    max-height: 11rem;
    }
 
 }
 .Inforanime-info-img{
     width: 100%;
-    height: auto;
-   
 }
-.Inforanime-info-img figure{
+.Inforanime-info-img img{
     width: 100%;
-    height: 5rem;
-
+    height: 6rem;
     border-radius: 0 .5rem .5rem 0;
     border: 1px solid black;
     border-left: none;
 }
 .Inforanime-info-img div{
-    height: 68%;
+    height: 65%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
     justify-content: space-evenly;
+    align-items: center;
     border-left: 1px solid black ;
     padding: 1rem 0 1rem 0;
     p{
         height: 2rem;
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -118,4 +132,9 @@
         border-radius: 0 .3rem .3rem 0;
         border-left: none;
     }
+}
+.Inforanime-info-img div p:last-child{
+    font-size: small;
+    text-align: center;
+    line-height: .8rem;
 }
