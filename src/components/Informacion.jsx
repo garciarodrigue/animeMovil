@@ -16,7 +16,7 @@ export const Informacion = ({ nombre,nombreOr,fans,sinopsis,episodios,urlimg,yea
                     <img src="/svgs/star-icon.svg" alt="star" />
                 </figure>
                 <div>
-                    <p><strong>fans:</strong>{fans}</p>
+                    <p><strong>fans:</strong>{fans}+</p>
                 </div>
             </div>
             <h1>Nombre Original:{nombreOr}</h1>

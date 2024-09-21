@@ -1,6 +1,7 @@
-import { Header } from "./components/Header"
-import { Media } from "./components/Media"
-import { Informacion } from "./components/Informacion"
+import { Header } from "./components/Header";
+import { Media } from "./components/Media";
+import { Informacion } from "./components/Informacion";
+import { Btonsb } from "./components/Btonsb";
 import './styles/app.css';
 import { useEffect,useState} from "react";
 
@@ -23,6 +24,9 @@ function App() {
   },[])
   return (
     <>
+      <Btonsb
+        urlimg={'./svgs/back-icon.svg'}
+      />
       <Header/>
       <Media/>
       <Informacion
@@ -36,9 +40,6 @@ function App() {
 
         year={anime.year}
         status={anime.status}
-   
-
-      
       />
       
     </>
