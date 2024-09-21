@@ -110,20 +110,7 @@ export const SearchBarButton = () => {
 
       {/* Mostrar los detalles del anime seleccionado (opcional) */}
       {selectedAnime && (
-        <div className="selected-anime">
-          <h3>{selectedAnime.nombre}</h3>
-          <p><strong>Nombre original:</strong> {selectedAnime.nombreOr}</p>
-          <p><strong>Fans:</strong> {selectedAnime.fans}</p>
-          <p><strong>Sinopsis:</strong> {selectedAnime.sinopsis}</p>
-          <p><strong>Episodios:</strong> {selectedAnime.episodios}</p>
-          <p><strong>Género(s):</strong> {selectedAnime.genero}</p>
-          <p><strong>Año:</strong> {selectedAnime.year}</p>
-          <p><strong>Estado:</strong> {selectedAnime.status}</p>
-          <img src={selectedAnime.urlimg} alt={selectedAnime.nombre} />
-        </div>
-      )}
-      
-      {/* <section className="select-anime">
+      <section className="select-anime">
         <Media/>
          <Informacion
           nombre={selectedAnime.nombre}
@@ -136,7 +123,9 @@ export const SearchBarButton = () => {
           year={selectedAnime.year}
           status={selectedAnime.status}
         />
-      </section> */}
+      </section> 
+      )}
+      
     </>
   );
 };
