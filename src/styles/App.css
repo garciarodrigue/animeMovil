@@ -1,4 +1,12 @@
-/* Global styles */
+Global styles
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  position: relative;
+}
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -8,9 +16,8 @@
 
 .section_compani {
   top:0;
-  position: fixed;
-  z-index: 1000;
-  display: flex;
+  z-index: 1;
+  display:flex;
   width: 100%;
   justify-content: center;
   align-items: center;
@@ -42,15 +49,15 @@ p {
 .container {
   display: flex;
   padding: 0px;
-  position: relative; /* Asegura que los hijos se posicionen correctamente */
+/* Asegura que los hijos se posicionen correctamente */
 }
 .column2{
   right: 0;
   position: fixed;
-  z-index: 2000;
+  z-index: 0;
 }
 .column {
-  top: 5%;
+  z-index: 0;
   padding-right: 5px;
   justify-content: start;
   width: 47%; /*Ajustado de los cuadros*/

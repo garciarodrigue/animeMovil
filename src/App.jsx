@@ -1,80 +1,61 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
 import './styles/App.css';
-import { Topanime } from './components/top.jsx';
-import { Header } from "./components/Header";
-import { Media } from "./components/Media";
-import { Informacion } from "./components/Informacion";
-import { Btonsb } from "./components/Btonsb";
 import './styles/app.css';
-import { useEffect,useState} from "react";
+import {SearchBarButton} from './components/BtnSearch.jsx'
+import { Topanime } from './components/top.jsx';
 
 function App() {
   const [recentAnimes, setRecentAnimes] = useState([]);
-  const [previousMonth, setPreviousMonth] = useState(false); // Estado para manejar el mes anterior
+  const [previousMonth, setPreviousMonth] = useState(false);
 
+  // Función para obtener los animes recientes
   const getRecentAnimes = (getPreviousMonth = false) => {
     const today = new Date();
     const endDate = today.toISOString().split('T')[0];
-
     const startDate = new Date(today);
 
     if (getPreviousMonth) {
-      startDate.setMonth(today.getMonth() - 2);
+      startDate.setMonth(today.getMonth() - 2); // Mes anterior (2 meses atrás)
     } else {
-      // Si es el mes actual, restamos solo 1 mes
-      startDate.setMonth(today.getMonth() - 1);
+      startDate.setMonth(today.getMonth() - 1); // Mes actual (1 mes atrás)
     }
 
     const startDateFormatted = startDate.toISOString().split('T')[0];
-
     const requestUrl = `https://api.jikan.moe/v4/anime?start_date=${startDateFormatted}&end_date=${endDate}`;
 
     fetch(requestUrl)
       .then(response => response.json())
       .then(data => {
-        console.log("Animes Data:", data.data);
-        setRecentAnimes(data.data); // Actualiza el estado con los datos recibidos
+        setRecentAnimes(data.data);
       })
       .catch(error => {
         console.error('Error al obtener los animes:', error);
       });
   };
 
+  // Efecto para cargar los animes al iniciar y cuando se cambia de mes
   useEffect(() => {
     getRecentAnimes(previousMonth);
   }, [previousMonth]);
 
+  // Manejador para cambiar al mes anterior
   const handlePreviousMonthClick = () => {
-    setPreviousMonth(true); // Cambia el estado para obtener datos del mes anterior
+    setPreviousMonth(true);
   };
 
-
-
-   const [anime,setAnime] = useState([]);
-   const [urlimg,setUrlimg] = useState('');
-   const [generos,setGeneros]= useState([]);
-   async function llamada() {
-    const res =  await fetch('https://api.jikan.moe/v4/anime?q=bleach-blod-war')
-    const data =  await res.json()
-    setAnime(data.data[0])
-    setUrlimg(data.data[0].images.jpg.image_url)
-    setGeneros(data.data[0].genres)
-   }
-  useEffect(()=>{
-   llamada()
-  },[])
   return (
     <>
       <header className="section_compani">
         <h1>AnimeTotal</h1>
         <p>new</p>
+        <SearchBarButton /> {/* Componente combinado con barra de búsqueda y botón */}
       </header>
 
       <section className="container">
         <div className="column">
           {recentAnimes.map((anime, index) => (
             <div key={index} className="producto">
-              <p className='fecha'>
+              <p className="fecha">
                 <small>Estreno: </small>
                 {anime.aired?.from ? new Date(anime.aired.from).toLocaleDateString() : "Fecha no disponible"}
               </p>
@@ -90,33 +71,11 @@ function App() {
         </div>
       </section>
 
-      {/* Botón para cambiar al mes anterior */}
-      <button onClick={handlePreviousMonthClick}>Mes antes</button>
+      <button onClick={handlePreviousMonthClick}>Mes anterior</button>
 
-      {/* Componente de los animes populares */}
-      <Topanime />
-      <Btonsb
-        urlimg={'./svgs/back-icon.svg'}
-      />
-       <Header/>
-      {/* <section className="Capactive">
-        <Media/>
-        <Informacion
-          nombre={anime.title}
-          nombreOr={anime.title_japanese}
-          fans={anime.members}
-          sinopsis={anime.synopsis}
-          episodios={anime.episodes}
-          urlimg={urlimg}
-          genero={generos}
-          year={anime.year}
-          status={anime.status}
-        />
-      </section> */
-      }
-      
+      <Topanime /> {/* Componente adicional Topanime */}
     </>
-  )
+  );
 }
 
-export default App
+export default App;
