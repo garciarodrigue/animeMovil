@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
+import {SearchBar} from './components/BtnSearch.jsx'
+import { Topanime } from './components/top.jsx';
 import './styles/App.css';
 import './styles/app.css';
-import {SearchBarButton} from './components/BtnSearch.jsx'
-import { Topanime } from './components/top.jsx';
-
 function App() {
+
   const [recentAnimes, setRecentAnimes] = useState([]);
   const [previousMonth, setPreviousMonth] = useState(false);
-
+  
   // Función para obtener los animes recientes
-  const getRecentAnimes = (getPreviousMonth = false) => {
+    const getRecentAnimes = (getPreviousMonth = false) => {
     const today = new Date();
     const endDate = today.toISOString().split('T')[0];
     const startDate = new Date(today);
@@ -48,9 +48,10 @@ function App() {
       <header className="section_compani">
         <h1>AnimeTotal</h1>
         <p>new</p>
-        <SearchBarButton /> {/* Componente combinado con barra de búsqueda y botón */}
+        <SearchBar />
+         {/* Componente combinado con barra de búsqueda y botón */}
       </header>
-
+      
       <section className="container">
         <div className="column">
           {recentAnimes.map((anime, index) => (
@@ -72,8 +73,9 @@ function App() {
       </section>
 
       <button onClick={handlePreviousMonthClick}>Mes anterior</button>
-
-      <Topanime /> {/* Componente adicional Topanime */}
+    
+      <Topanime />
+      {/* Componente adicional Topanime */}
     </>
   );
 }
