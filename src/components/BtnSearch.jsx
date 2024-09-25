@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Btonsb } from './Btonsb'; // Asegúrate de que la ruta sea correcta
 import { SearchResults } from './AnimeSelection';
 import '../styles/search.css'
+import "../styles/app.css"
+import "../styles/App.css"
+
  // Importa el CSS específico del botón // Asegúrate de que el estilo de búsqueda esté correctamente importado
 
  export const SearchBar = ({ handleAnimeSelect }) => {
