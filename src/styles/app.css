@@ -47,7 +47,7 @@ p {
 .column2{
   right: 0;
   position: fixed;
-  
+  z-index: 2000;
 }
 .column {
   top: 5%;
