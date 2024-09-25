@@ -35,6 +35,10 @@ import "../styles/App.css"
 
   return (
     <div>
+          {/* Botón para cambiar al mes anterior */}
+          <button onClick={handlePreviousMonthClick}>Mes antes</button>
+{/* Componente de los animes populares */}
+<Topanime />
       <input
         type="text"
         placeholder="Buscar anime..."
